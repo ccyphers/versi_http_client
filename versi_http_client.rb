@@ -29,6 +29,27 @@ end
 =begin
 cfg = YAML::load_file "#{base}/conf/ex.yml"
 
+
 google_api  = VersiHTTPClient.new(cfg)
-puts google_api.google_prod.web_search('q' => 'blah', 'invalid1' => 'invalid1', :invalid2 => 'invalid2')#.inspect
+
+
+require 'nokogiri'
+num_pages=5
+1.upto(num_pages) do |page_number|
+  params = {'q' => 'blah'}
+  if page_number > 1
+    params['start'] = 10*page_number
+  end
+
+  res = google_api.google_prod.web_search(params)
+  doc = Nokogiri.parse(res.body)
+
+  # display titles 
+  1.upto(10) do |ct|
+    puts doc.search("//*[@id=\"ires\"]/ol/li[#{ct}]/h3/a").children.map { |i| i.to_s}.join(" ") 
+  end
+
+end
+
+
 =end

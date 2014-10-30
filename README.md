@@ -25,7 +25,7 @@ This is just a juck and dirty starting point.
 
 For each site, referenced by the top level Hash key, in this case there is one site named **google_prod**, an instance is created for you that is accessible by the site name.  Then given the actions for a site, for example, **web_search**, instance methods are created for you on the site Class.  
 
-## Usage
+## Examle Usage
 
 cfg = YAML::load_file "/some/path/ex.yml"
 
@@ -39,5 +39,30 @@ google_api.google_prod.web_search('q' => 'blah')
 
 The action method will return an instance of HTTP::Message which you can then
 get further details, such as the request body, header information ,etc..  See the documentation for httpclient for full details.
+
+### Itterating over search results for the google_api
+
+Say you want to pull the text from the link heading, 5 pages of results deep.  Simply set a key in the params passed to web_search called start:
+
+    start := page_number * 10, for page_number > 1
+
+
+Ex:
+
+    require 'nokogiri'
+    num_pages=5
+    1.upto(num_pages) do |page_number|
+      params = {'q' => 'blah'}
+      if page_number > 1
+        params['start'] = 10*page_number
+      end
+
+      res = google_api.google_prod.web_search(params)
+      doc = Nokogiri.parse(res.body)
+
+      # display titles 
+      1.upto(10) do |ct|
+        puts doc.search("//*[@id=\"ires\"]/ol/li[#{ct}]/h3/a").children.map { |i| i.to_s}.join(" ") 
+      end
 
 
