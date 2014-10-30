@@ -31,15 +31,19 @@ For each site, referenced by the top level Hash key, in this case there is one s
 
 ## Examle Usage
 
-cfg = YAML::load_file "/some/path/ex.yml"
+    cfg = YAML::load_file "/some/path/ex.yml"
 
 ### API object
 
-google_api  = VersiHTTPClient.new(cfg)
+    google_api  = VersiHTTPClient.new(cfg)
 
 ### Call action methods on the instance
 
-google_api.google_prod.web_search('q' => 'blah')
+    google_api.google_prod.web_search('q' => 'blah')
+
+Or perform an image search, just add an additional key to the param hash passwed to we_search:
+
+    google_api.google_prod.web_search('q' => 'blah', 'tbm' => 'isch')
 
 The action method will return an instance of HTTP::Message which you can then
 get further details, such as the request body, header information ,etc..  See the documentation for httpclient for full details.

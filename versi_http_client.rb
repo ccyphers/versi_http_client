@@ -31,7 +31,7 @@ cfg = YAML::load_file "#{base}/conf/ex.yml"
 
 
 google_api  = VersiHTTPClient.new(cfg)
-
+#puts google_api.google_prod.web_search('q' => 'blah', 'tbm' => 'isch').body
 
 require 'nokogiri'
 num_pages=5
