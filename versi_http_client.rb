@@ -38,7 +38,7 @@ num_pages=5
 1.upto(num_pages) do |page_number|
   params = {'q' => 'blah'}
   if page_number > 1
-    params['start'] = 10*page_number
+    params['start'] = (10*page_number)-10
   end
 
   res = google_api.google_prod.web_search(params)

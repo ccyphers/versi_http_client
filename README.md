@@ -44,7 +44,7 @@ get further details, such as the request body, header information ,etc..  See th
 
 Say you want to pull the text from the link heading, 5 pages of results deep.  Simply set a key in the params passed to web_search called start:
 
-    start := page_number * 10, for page_number > 1
+    start := (page_number * 10) - 10), for page_number > 1
 
 
 Ex:
