@@ -16,6 +16,10 @@ This is just a juck and dirty starting point.
           path: '/search'
           required_params:
             - q
+          optional_params:
+            - start
+          required_params:
+            - q
           optional_params: []
           request_method: get
           
