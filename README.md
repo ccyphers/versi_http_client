@@ -1,5 +1,5 @@
 #Versi HTTP Client
-When you need a statefull http client to provide a wide range of task, from integration automation testing to creating a generic API for your backend, **Versi HTTP Client** takes an easy to define configuration and generates all the wiring and objects required for your needs.
+When you need a statefull http client to provide a wide range of task, from integration automation testing to creating a generic API for your backend, **Versi HTTP Client** takes an YAML configuration or raw Hash and generates all the wiring and objects required for your needs.
 
 **Early stages warning**:
 
