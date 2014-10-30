@@ -1,0 +1,11 @@
+google_prod:
+  base_url: 'https://www.google.com'
+  actions:
+    web_search:
+      path: '/search'
+      required_params:
+        - q
+      optional_params: []
+      request_method: get
+
+
