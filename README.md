@@ -31,7 +31,7 @@ cfg = YAML::load_file "/some/path/ex.yml"
 
 ### API object
 
-google_api  = VersiHTTPClient::Base.new(cfg)
+google_api  = VersiHTTPClient.new(cfg)
 
 ### Call action methods on the instance
 
