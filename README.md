@@ -18,6 +18,7 @@ This is just a juck and dirty starting point.
             - q
           optional_params:
             - start
+            - tbm
           required_params:
             - q
           optional_params: []
@@ -41,7 +42,7 @@ For each site, referenced by the top level Hash key, in this case there is one s
 
     google_api.google_prod.web_search('q' => 'blah')
 
-Or perform an image search, just add an additional key to the param hash passwed to we_search:
+Or perform an image search, just add an additional key to the param hash passed to web_search:
 
     google_api.google_prod.web_search('q' => 'blah', 'tbm' => 'isch')
 
