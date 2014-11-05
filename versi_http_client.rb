@@ -26,7 +26,7 @@ module VersiHTTPClient
   end
 end
 
-#=begin
+=begin
 cfg = YAML::load_file "#{base}/conf/ex.yml"
 
 
@@ -52,4 +52,4 @@ num_pages=5
 end
 
 
-#=end
+=end
