@@ -19,9 +19,6 @@ This is just a juck and dirty starting point.
           optional_params:
             - start
             - tbm
-          required_params:
-            - q
-          optional_params: []
           request_method: get
           
 
